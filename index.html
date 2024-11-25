@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <title>BookMark</title>
+  </head>
+  <body>
+    <main class="py-5 position-relative">
+      <div
+        class="container d-flex justify-content-center align-items-center flex-column"
+      >
+        <h1 class="text-center py-2">Bookmarker</h1>
+        <div
+          class="w-100 bookmark-body d-flex justify-content-center align-items-center flex-column gap-4 mt-5 py-4"
+        >
+          <h2>
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h2>
+          <div class="w-100 d-flex justify-content-center flex-column">
+            <label for="bookMarkName" class="form-label fw-semibold"
+              ><i class="fa-solid fa-book-bookmark pe-2"> </i>Site Name</label
+            >
+            <input
+              oninput="isValidBookmarkName()"
+              type="text"
+              class="form-control"
+              id="bookMarkName"
+              placeholder="Bookmark Name"
+            />
+          </div>
+          <div class="w-100 d-flex justify-content-center flex-column">
+            <label for="siteUrl" class="form-label fw-semibold"
+              ><i class="fa-solid fa-link pe-2"></i>Site URl</label
+            >
+            <input
+              oninput="isValidUrl()"
+              type="url"
+              class="form-control"
+              id="siteUrl"
+              placeholder="Website URL"
+            />
+          </div>
+          <button
+            onclick="addBookMark()"
+            class="btn btn-primary"
+            type="submit"
+            id="submitBtn"
+          >
+            Submit
+          </button>
+        </div>
+        <table class="table mt-4 text-center bg-light">
+          <thead>
+            <tr>
+              <th class="text-capitalize">Index</th>
+              <th class="text-capitalize">Website Name</th>
+              <th class="text-capitalize">Visit</th>
+              <th class="text-capitalize">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tableContent"></tbody>
+        </table>
+        <div
+          id="overlay"
+          class="position-absolute w-100 h-100 overlay d-flex align-items-center justify-content-center d-none"
+        >
+          <div class="overlayCard p-2 rounded-3">
+            <div
+              class="header d-flex align-items-center justify-content-between px-3 my-4"
+            >
+              <div class="circles">
+                <span class="rounded-circle bg-danger me-2"></span>
+                <span class="rounded-circle bg-warning me-2"></span>
+                <span class="rounded-circle bg-success me-2"></span>
+              </div>
+              <button onclick="closeOverlay()" id="close">
+                <i class="fa-solid fa-x close"></i>
+              </button>
+            </div>
+            <p class="fs-4 fw-bold">
+              Site Name or Url is not valid, Please follow the rules below :
+            </p>
+            <p>
+              <i class="fa-regular fa-circle-right me-2 text-danger"></i>Site
+              name must contain at least 3 characters
+            </p>
+            <p>
+              <i class="fa-regular fa-circle-right me-2 text-danger"></i>Site
+              URL must be a valid one
+            </p>
+            <p>
+              <i class="fa-regular fa-circle-right me-2 text-danger"></i>Can't
+              enter the same bookmark name twice
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
